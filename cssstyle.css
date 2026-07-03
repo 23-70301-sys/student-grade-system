@@ -7,6 +7,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f3f4f6;
+<<<<<<< HEAD
     color: #1f2937;
 }
 
@@ -15,6 +16,9 @@ body {
    ================================================ */
 
 body:has(.login-container) {
+=======
+    color: #1f2937; 
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +27,20 @@ body:has(.login-container) {
 }
 
 .login-container {
+<<<<<<< HEAD
     background-color: #fff;
     padding: 40px;
     border-radius: 12px;
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
+=======
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
     width: 100%;
     max-width: 420px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -48,6 +60,7 @@ body:has(.login-container) {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .login-error {
     background-color: #fee2e2;
     color: #991b1b;
@@ -59,6 +72,8 @@ body:has(.login-container) {
     text-align: center;
 }
 
+=======
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
 .form-group {
     margin-bottom: 20px;
 }
@@ -68,7 +83,7 @@ body:has(.login-container) {
     margin-bottom: 6px;
     font-size: 14px;
     font-weight: 500;
-    color: #4b5563;
+    color: #4b5563; 
 }
 
 .form-group input[type="text"],
@@ -89,11 +104,14 @@ body:has(.login-container) {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+<<<<<<< HEAD
 .pwd-container {
     display: flex;
     align-items: stretch;
 }
 
+=======
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
 .pwd-container input {
     border-radius: 6px 0 0 6px !important;
 }
@@ -155,6 +173,7 @@ body:has(.login-container) {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .forgot-password {
     text-align: right;
     margin-bottom: 24px;
@@ -170,6 +189,8 @@ body:has(.login-container) {
     text-decoration: underline;
 }
 
+=======
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
 .login-btn {
     width: 100%;
     padding: 14px;
@@ -198,7 +219,12 @@ body:has(.login-container) {
 }
 
 @media (max-width: 480px) {
+<<<<<<< HEAD
     body:has(.login-container) {
+=======
+    body {
+        background-color: #ffffff; 
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
         padding: 0;
     }
 
@@ -208,6 +234,7 @@ body:has(.login-container) {
         border-radius: 0;
     }
 }
+<<<<<<< HEAD
 
 /* ================================================
    Dashboard
@@ -697,3 +724,5 @@ body:has(.login-container) {
         min-width: 640px;
     }
 }
+=======
+>>>>>>> bd371534015907d3361f5621a6cbfc7474c02a8d
