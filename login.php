@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Hardcoded admin credentials (for development/demo purposes only).
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'admin123';
 
@@ -17,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $username;
 
         if ($rememberMe) {
-            // Extend session cookie lifetime to 30 days.
             setcookie(session_name(), session_id(), time() + (30 * 24 * 60 * 60), "/");
         }
 
@@ -71,5 +69,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="jsapp.js"></script>
 </body>
 </html>
-Compose
-Write to Leinard Urcia

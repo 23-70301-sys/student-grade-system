@@ -6,9 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setupLoginValidation();
 });
 
-/**
- * Enhancement: Show/Hide password toggle
- */
+
 function setupPasswordToggle() {
     const toggleBtn = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
@@ -23,9 +21,6 @@ function setupPasswordToggle() {
     });
 }
 
-/**
- * Enhancement: Client-side validation + inline error messages
- */
 function setupLoginValidation() {
     const form = document.getElementById('loginForm');
     if (!form) return;
@@ -38,13 +33,11 @@ function setupLoginValidation() {
     form.addEventListener('submit', function (e) {
         let isValid = true;
 
-        // Reset errors
         emailError.textContent = '';
         passwordError.textContent = '';
         emailInput.classList.remove('input-invalid');
         passwordInput.classList.remove('input-invalid');
 
-        // Email validation
         const emailValue = emailInput.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -58,7 +51,6 @@ function setupLoginValidation() {
             isValid = false;
         }
 
-        // Password validation
         const passwordValue = passwordInput.value.trim();
 
         if (passwordValue === '') {
@@ -76,7 +68,6 @@ function setupLoginValidation() {
         }
     });
 
-    // Clear inline error as the user starts typing again
     [emailInput, passwordInput].forEach(function (input) {
         input.addEventListener('input', function () {
             input.classList.remove('input-invalid');
