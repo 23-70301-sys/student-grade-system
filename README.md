@@ -1,5 +1,3 @@
-# student-grade-system
-
 # Student Grade Management System
 
 A simple PHP-based web application for managing student grades, built as a
@@ -19,16 +17,17 @@ workflow.
 ```
 student-grade-system/
 │
-├── index.php        # Entry point / redirect handler
-├── login.php         # Login page (Authentication Module)
-├── dashboard.php      # User dashboard after login
-├── grades.php         # Grade management page
+├── index.php          # Entry point / redirect handler
+├── login.php           # Login page (Authentication Module)
+├── dashboard.php        # User dashboard after login
+├── grades.php            # Grade management page
+├── logout.php             # Session teardown
 │
 ├── css/
-│   └── cssstyle.css   # Global styles
+│   └── cssstyle.css        # Global styles
 │
 ├── js/
-│   └── jsapp.js        # Client-side scripts (validation, UI interactions)
+│   └── jsapp.js              # Client-side scripts (validation, table search/sort/export)
 │
 └── README.md
 ```
@@ -38,15 +37,18 @@ student-grade-system/
 ### Authentication Module (login.php)
 - Client-side and server-side form validation
 - Show/Hide password toggle
-- Improved, responsive login layout
-- "Remember me" option
+- Responsive, two-panel login layout
+- "Remember me" option (extends the session cookie's lifetime)
 - Inline error messages for invalid input
 
 ### Grade Management Module (grades.php)
-- Student records table
-- Grade computation
-- Search and sort functionality
-- Color-coded grade status
+- Student records table with computed weighted averages (30/30/40)
+- Class summary cards: average, highest, lowest, pass rate
+- Live search by name or student ID
+- Filter by Passed / Failed status
+- Click-to-sort columns
+- CSV export of the currently visible rows
+- Color-coded grade status badges
 
 ## Getting Started
 
@@ -63,8 +65,8 @@ student-grade-system/
 ## Demo Credentials
 
 ```
-Email:    student@bsu.edu.ph
-Password: password123
+Username: admin
+Password: admin123
 ```
 
 ## Git Workflow

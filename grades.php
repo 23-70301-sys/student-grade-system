@@ -54,16 +54,19 @@ $passRate     = count($students) ? round(($passedCount / count($students)) * 100
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Management</title>
-    <link rel="stylesheet" href="cssstyle.css">
+    <title>Grade Management &middot; Student Grade Management System</title>
+    <link rel="stylesheet" href="css/cssstyle.css">
 </head>
 <body class="grades-page">
 
 <div class="grades-container">
     <header class="grades-header">
-        <div>
-            <h2>Grade Management</h2>
-            <p class="grades-subtitle"><?= htmlspecialchars($students[0]['subject'] ?? 'All Subjects') ?></p>
+        <div class="header-identity">
+            <span class="seal">SG</span>
+            <div>
+                <h2>Grade Management</h2>
+                <p class="grades-subtitle"><?= htmlspecialchars($students[0]['subject'] ?? 'All Subjects') ?></p>
+            </div>
         </div>
         <nav class="grades-nav">
             <a href="dashboard.php">&larr; Back to Dashboard</a>
@@ -146,6 +149,6 @@ $passRate     = count($students) ? round(($passedCount / count($students)) * 100
     </div>
 </div>
 
-<script src="gradesjs.js"></script>
+<script src="js/jsapp.js"></script>
 </body>
 </html>
