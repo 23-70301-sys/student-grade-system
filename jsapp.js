@@ -1,54 +1,78 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const toggleButton = document.getElementById("togglePassword");
-    const submitButton = document.getElementById("submitBtn");
+// js/jsapp.js
+// Client-side behavior for the Student Grade Management System
 
-    if (!loginForm || !usernameInput || !passwordInput || !toggleButton || !submitButton) {
-        return;
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    setupPasswordToggle();
+    setupLoginValidation();
+});
 
-    toggleButton.addEventListener("click", () => {
-        const isPassword = passwordInput.getAttribute("type") === "password";
-        
-        passwordInput.setAttribute("type", isPassword ? "text" : "password");
-        
-        toggleButton.textContent = isPassword ? "Hide" : "Show";
-        toggleButton.setAttribute("aria-label", isPassword ? "Hide password" : "Show password");
-        
-        passwordInput.focus();
+
+function setupPasswordToggle() {
+    const toggleBtn = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    if (!toggleBtn || !passwordInput) return;
+
+    toggleBtn.addEventListener('click', function () {
+        const isHidden = passwordInput.type === 'password';
+        passwordInput.type = isHidden ? 'text' : 'password';
+        toggleBtn.textContent = isHidden ? '🙈' : '👁';
+        toggleBtn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
     });
+}
 
-    function evaluateFormState() {
-        const usernameValue = usernameInput.value.trim();
+function setupLoginValidation() {
+    const form = document.getElementById('loginForm');
+    if (!form) return;
+
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    form.addEventListener('submit', function (e) {
+        let isValid = true;
+
+        emailError.textContent = '';
+        passwordError.textContent = '';
+        emailInput.classList.remove('input-invalid');
+        passwordInput.classList.remove('input-invalid');
+
+        const emailValue = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailValue === '') {
+            emailError.textContent = 'Email is required.';
+            emailInput.classList.add('input-invalid');
+            isValid = false;
+        } else if (!emailPattern.test(emailValue)) {
+            emailError.textContent = 'Please enter a valid email address.';
+            emailInput.classList.add('input-invalid');
+            isValid = false;
+        }
+
         const passwordValue = passwordInput.value.trim();
 
-        const isFormInvalid = usernameValue === "" || passwordValue === "";
-
-        submitButton.disabled = isFormInvalid;
-
-        if (isFormInvalid) {
-            submitButton.style.opacity = "0.6";
-            submitButton.style.cursor = "not-allowed";
-        } else {
-            submitButton.style.opacity = "1";
-            submitButton.style.cursor = "pointer";
+        if (passwordValue === '') {
+            passwordError.textContent = 'Password is required.';
+            passwordInput.classList.add('input-invalid');
+            isValid = false;
+        } else if (passwordValue.length < 6) {
+            passwordError.textContent = 'Password must be at least 6 characters.';
+            passwordInput.classList.add('input-invalid');
+            isValid = false;
         }
-    }
-    
-    usernameInput.addEventListener("input", evaluateFormState);
-    passwordInput.addEventListener("input", evaluateFormState);
 
-    loginForm.addEventListener("submit", (event) => {
-        const cleanUser = usernameInput.value.trim();
-        const cleanPass = passwordInput.value.trim();
-
-        if (cleanUser === "" || cleanPass === "") {
-            event.preventDefault(); // Halt active server communication pipeline
-            alert("Please accurately complete all required input credentials.");
+        if (!isValid) {
+            e.preventDefault();
         }
     });
 
-    evaluateFormState();
-});
+    [emailInput, passwordInput].forEach(function (input) {
+        input.addEventListener('input', function () {
+            input.classList.remove('input-invalid');
+            const errorSpan = input.id === 'email' ? emailError : passwordError;
+            errorSpan.textContent = '';
+        });
+    });
+}
