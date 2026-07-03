@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,21 +39,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="login-container">
     <h2>Account Login</h2>
+
     <?php if ($loginError): ?>
         <p class="login-error"><?= htmlspecialchars($loginError) ?></p>
     <?php endif; ?>
+
     <form id="loginForm" action="login.php" method="POST">
-        
+
         <div class="form-group">
             <label id="username-label" for="username">Username</label>
-            <input type="text" id="username" name="username" aria-labelledby="username-label" required autocomplete="username">
+            <input
+                type="text"
+                id="username"
+                name="username"
+                aria-labelledby="username-label"
+                required
+                autocomplete="username"
+            >
         </div>
 
         <div class="form-group">
             <label id="password-label" for="password">Password</label>
+
             <div class="pwd-container">
-                <input type="password" id="password" name="password" aria-labelledby="password-label" required autocomplete="current-password">
-                <button type="button" id="togglePassword" class="toggle-btn" aria-label="Show password">Show</button>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    aria-labelledby="password-label"
+                    required
+                    autocomplete="current-password"
+                >
+
+                <button
+                    type="button"
+                    id="togglePassword"
+                    class="toggle-btn"
+                    aria-label="Show password"
+                >
+                    Show
+                </button>
             </div>
         </div>
 
@@ -61,11 +87,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="remember_me">Remember Me</label>
         </div>
 
-        <button type="submit" id="submitBtn" class="login-btn">Login</button>
-        
+        <div class="forgot-password">
+            <a href="forgot-password.php">Forgot Password?</a>
+        </div>
+
+        <button
+            type="submit"
+            id="submitBtn"
+            class="login-btn"
+        >
+            Login
+        </button>
+
     </form>
 </div>
 
 <script src="jsapp.js"></script>
+
 </body>
 </html>

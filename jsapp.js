@@ -1,6 +1,3 @@
-// js/jsapp.js
-// Client-side behavior for the Student Grade Management System
-
 document.addEventListener('DOMContentLoaded', function () {
     setupPasswordToggle();
     setupLoginValidation();
